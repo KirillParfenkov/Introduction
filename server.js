@@ -33,6 +33,6 @@ app.use(bodyParser.json());
 app.use(serveStatic('public'));
 
 
-app.listen(8080, function() {
-	console.log('Server running at 8080 port');
+app.listen(80, function() {
+	console.log('Server running at 80 port');
 });
