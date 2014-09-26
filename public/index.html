@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Кирилл Парфенков</title>
+        <link href='http://fonts.googleapis.com/css?family=Play:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <meta charset="utf-8">
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    </head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #EBF0FA;
+        }
+        .page {
+            padding-top: 30px;
+            width: 850px;
+            margin: auto auto;
+            overflow: hidden;
+            overflow: visible;
+        }
+
+        .page .region {
+            float: left;
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+            box-shadow: 0px 5px 15px 0px rgba(50, 50, 50, 0.75);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page .region .view {
+            width: 100%;
+            height: 100%;
+        }
+
+        .page .region:hover {
+            cursor: pointer;
+            box-shadow: 0px 3px 20px 0px rgba(50, 50, 50, 0.75);
+        }
+
+        .region.red {
+            width: 500px;
+            background: rgb(204, 0, 51 );
+        }
+
+        .region.green {
+            background: #27A932;
+        }
+
+        .region.blue {
+            background: #007fff;
+        }
+
+        .region.yellow {
+            width: 500px;
+            background: #FACC2E;
+        }
+
+        .region .header {
+            text-align: center;
+            font-size: 35;
+            font-weight: 700;
+            color: #ffffff;
+            padding: 10px;
+        }
+
+        .region .curtain {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+        }
+
+        .region .curtain .icon img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 86px;
+        }
+
+        .region.yellow .curtain .icon img {
+            padding-top: 106px;
+        }
+
+        .region .card {
+            display: none;
+            position: absolute;
+            font-family: 'Play', sans-serif;
+
+            width: 100%;
+            height: 100%;
+            right: 100%;
+            z-index: 200;
+
+            /*box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.75); */
+        }
+
+
+        .region.blue .card {
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            background: #0173FF;
+            left: -300px;
+        }
+
+        .region.red .card {
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            background: #CC0033;
+            left: -300px;
+        }
+
+        .region.yellow .card {
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            background: #FACC2E;
+        }
+
+        .region.green .card {
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            background: #27A932;
+        }
+
+        .region.red .card  .contentHeader {
+            padding-top: 120px;
+        }
+
+        .region.yellow .card  .contentHeader {
+            padding-top: 120px;
+        }
+
+        .region.green .card  .contentHeader {
+            padding-top: 120px;
+        }
+
+        .region.blue .card  .contentHeader {
+            padding-top: 120px;
+        }
+
+        .region .card  .content {
+            display: none;
+            padding-top: 200px;
+            font-size: 40px;
+        }
+
+        .region .cross {
+            display: none;
+            position: absolute;
+            z-index: 300;
+
+        }
+
+        .region.blue .cross{
+            left: 780px;
+            top: -310px;
+        }
+
+        .region.red .cross{
+            left: 780px;
+            top: 10px;
+        }
+
+        .region.yellow .cross {
+            right: 20px;
+            top: -310px;
+        }
+
+        .region.green .cross {
+            right: 20px;
+            top: 10px;
+        }
+
+    </style>
+    <body>
+        <div class="page">
+            <div  class="region red" >
+                <div class="cross">
+                    <img src="img/1411694336_cross-24-20.png">
+                </div>
+                <div class="card">
+                    <div class="contentHeader">
+                        <a>Услуги</a>
+                    </div>
+                    <div class="content">
+                        Разработка Веб-приложений.
+                    </div>
+                </div>
+                <div class="curtain">
+                    <div class="icon">
+                        <img src="img/1411681469_Work.png">
+                    </div>
+                </div>
+            </div>
+            <div  class="region green" >
+                <div class="cross">
+                    <img src="img/1411694336_cross-24-20.png">
+                </div>
+                <div class="card">
+                    <div class="contentHeader">
+                        <a>Написать</a>
+                    </div>
+                    <div class="content">
+                        Форма отправки сообщения.
+                    </div>
+                </div>
+                <div class="curtain">
+                    <div class="icon">
+                        <img src="img/1411683816_paperplane-128.png">
+                    </div>
+                </div>
+            </div>
+            <div  class="region blue" >
+                <div class="cross">
+                    <img src="img/1411694336_cross-24-20.png">
+                </div>
+                <div class="card">
+                    <div class="contentHeader">
+                        <a>Партнеры</a>
+                    </div>
+                    <div class="content">
+                        Продвижение веб-сайтов.
+                    </div>
+                </div>
+                <div class="curtain">
+                    <div class="icon">
+                        <img src="img/1411681786_User_Group.png">
+                    </div>
+                </div>
+            </div>
+            <div  class="region yellow" >
+                <div class="cross">
+                    <img src="img/1411694336_cross-24-20.png">
+                </div>
+                <div class="card">
+                    <div class="contentHeader">
+                        <a>Контакты</a>
+                    </div>
+                    <div class="content">
+                        Skype : Kiryl_Parfiankou<br>
+                        Тел.: +375 29 3172890<br>
+                        Email: Kiryl.Parfiankou@gmail.com
+                    </div>
+                </div>
+                <div class="curtain">
+                    <div class="icon">
+                        <img src="img/1411681648_business_namecard_contact_info-128.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        $( document).ready( function() {
+
+            // Yellow
+            var $yellowRegion = $('.region.yellow');
+            var $yellowCard = $yellowRegion.find('.card');
+            var $yellowCross = $yellowRegion.find('.cross');
+            var $yellowContentHeader = $yellowRegion.find('.contentHeader');
+            var $yellowContent = $yellowRegion.find('.content');
+
+            // Blue
+            var $blueRegion = $('.region.blue');
+            var $blueCard = $blueRegion.find('.card');
+            var $blueCross = $blueRegion.find('.cross');
+            var $blueContentHeader = $blueRegion.find('.contentHeader');
+            var $blueContent =$blueRegion.find('.content');
+
+            // Red
+            var $redRegion = $('.region.red');
+            var $redCard = $redRegion.find('.card');
+            var $redCross = $redRegion.find('.cross');
+            var $redContentHeader = $redRegion.find('.contentHeader');
+            var $redContent = $redRegion.find('.content');
+
+            // Green
+            var $greenRegion = $('.region.green');
+            var $greenCard = $greenRegion.find('.card');
+            var $greenCross = $greenRegion.find('.cross');
+            var $greenContentHeader = $greenRegion.find('.contentHeader');
+            var $greenContent = $greenRegion.find('.content');
+
+            function renderContent( $content, $header ) {
+
+                $header.hide();
+                $content.css({
+                    opacity : 0
+                });
+                $content.show();
+                $content.animate({
+                    opacity : 1
+                }, 100 );
+            }
+
+            function closeContent( $content, $header, $cross ) {
+
+                $header.show();
+                $cross.hide();
+                $header.animate( {
+                    opacity : 1
+                }, 100);
+                $content.hide();
+
+            }
+
+            function closeYellowBox() {
+
+                closeContent( $yellowContent, $yellowContentHeader, $yellowCross );
+
+                $yellowCard.animate({
+                    width : "500px",
+                    height : "300px",
+                    "box-shadow" : "none"
+                }, 400).animate({
+                    top: 0
+                }, 400, function() {
+                    $yellowRegion.css({
+                        overflow : "hidden"
+                    });
+
+                    activateHoverEvents();
+                    $yellowCard.css({
+                        "z-index" : "200"
+                    });
+                    if ( !$yellowCard.data('hover') ) {
+                        $yellowCard.animate({ "right" : "100%" }, 300, function() {
+                            $yellowCard.hide();
+                        });
+                    }
+                });
+            }
+
+            function closeGreenBox() {
+
+                closeContent( $greenContent, $greenContentHeader, $greenCross );
+
+                $greenCard.animate({
+                    width : "300px",
+                    height : "300px",
+                    "box-shadow" : "none"
+                }, 400, function() {
+                    $greenRegion.css({
+                        overflow : "hidden"
+                    });
+
+                    activateHoverEvents();
+                    $greenCard.css({
+                        "z-index" : "200"
+                    });
+                    if ( !$greenCard.data('hover') ) {
+                        $greenCard.animate({ "left" : "-100%" }, 300, function() {
+                            $greenCard.hide();
+                        });
+                    }
+                });
+            }
+
+            function closeBlueBox() {
+
+                closeContent( $blueContent, $blueContentHeader, $blueCross );
+
+                $blueCard.animate({
+                    width : "300px",
+                    height : "300px",
+                    "box-shadow" : "none"
+                }, 400).animate({
+                    top: 0
+                }, 400, function() {
+                    $blueRegion.css({
+                        overflow : "hidden"
+                    });
+
+                    activateHoverEvents();
+                    $blueCard.css({
+                        "z-index" : "200"
+                    });
+                    if ( !$blueCard.data('hover') ) {
+                        $blueCard.animate({ "left" : "-100%" }, 300, function() {
+                            $blueCard.hide();
+                        });
+                    }
+                });
+            }
+
+            function closeRedBox() {
+
+                closeContent( $redContent, $redContentHeader, $redCross );
+
+                $redCard.animate({
+                    width : "500px",
+                    height : "300px",
+                    "box-shadow" : "none"
+                }, 400, function() {
+                    $redRegion.css({
+                        overflow : "hidden"
+                    });
+                    activateHoverEvents();
+                    $redCard.css({
+                        "z-index" : "200"
+                    });
+                    if ( !$redCard.data('hover') ) {
+                        $redCard.animate({ "left" : "-100%" }, 300, function() {
+                            $redCard.hide();
+
+                        });
+                    }
+                });
+            }
+
+            function defineEvents() {
+
+                activateHoverEvents();
+
+                $greenCard.click( function() {
+                    deactivateHoverEvents( $greenRegion );
+                    $greenRegion.css( {
+                        overflow: "visible"
+                    });
+
+                    $greenContentHeader.animate({
+                        opacity : 0
+                    }, 100 );
+
+                    $greenCard.animate({
+                        width: "820px",
+                        height: "620px"
+                    },500, function() {
+                        $greenCard.css("box-shadow", "0px 5px 10px 2px rgba(39, 169, 50, 1)");
+                        $greenCross.show();
+                        renderContent( $greenContent, $greenContentHeader );
+                    });
+
+                });
+
+                $yellowCard.click( function() {
+                    deactivateHoverEvents( $yellowRegion );
+                    $yellowRegion.css( {
+                        overflow: "visible"
+                    });
+
+                    $yellowContentHeader.animate({
+                        opacity : 0
+                    }, 100 );
+
+                    $yellowCard.animate({
+                        "top" : "-320px"
+                    }, 300, function() {
+
+                    }).animate({
+                        width: "820px",
+                        height: "620px"
+                    },500, function() {
+                        $yellowCard.css("box-shadow", "0px 5px 10px 2px rgba(250, 204, 46, 1)");
+                        $yellowCross.show();
+                        renderContent( $yellowContent, $yellowContentHeader );
+                    });
+
+                });
+
+                $blueCard.click( function() {
+
+                    deactivateHoverEvents( $blueRegion );
+                    $blueRegion.css( {
+                        overflow: "visible"
+                    });
+
+                    $blueContentHeader.animate({
+                        opacity : 0
+                    }, 100 );
+
+                    $blueCard.animate({
+                        "top" : "-320px"
+                    }, 300, function() {
+
+                    }).animate({
+                        width: "820px",
+                        height: "620px"
+                    },500, function() {
+                        $blueCard.css("box-shadow", "0px 5px 10px 2px rgba(1, 115, 255, 1)");
+                        $blueCross.show();
+                        renderContent( $blueContent, $blueContentHeader );
+                    });
+
+                });
+
+                $redCard.click( function() {
+
+                    deactivateHoverEvents( $redRegion );
+                    $redRegion.css( {
+                        overflow: "visible"
+                    });
+
+                    $redContentHeader.animate({
+                        opacity : 0
+                    }, 100 );
+
+                    $redCard.animate({
+                        width: "820px",
+                        height: "620px"
+                    },500, function() {
+                        $redCard.css("box-shadow", "0px 5px 10px 2px rgba(204, 0, 51, 1)");
+                        $redCross.show();
+                        renderContent( $redContent, $redContentHeader );
+                    });
+
+                });
+
+                $('.region .card').hover( function() {
+                    $(this).data('hover',1);
+                }, function() {
+                    $(this).data('hover',0);
+                });
+
+                $redCross.click( function() {
+                    closeRedBox();
+                });
+
+                $yellowCross.click( function() {
+                    closeYellowBox();
+                });
+
+                $blueCross.click( function() {
+                    closeBlueBox();
+                });
+
+                $greenCross.click( function() {
+                    closeGreenBox();
+                });
+            }
+
+            function activateHoverEvents() {
+
+                var shadow = { "box-shadow" : "0px 3px 10px 0px rgba(50, 50, 50, 0.75)" }
+                $blueCard.css( shadow );
+                $redCard.css( shadow );
+                $yellowCard.css( shadow );
+                $greenCard.css( shadow );
+
+                $blueRegion.mouseenter( function(){
+                    $blueCard.stop();
+                    $blueCard.show();
+                    $blueCard.animate({ "left" : 0 }, 300);
+
+                }).mouseleave( function() {
+                    $blueCard.stop();
+                    $blueCard.animate({ "left" : "-100%" }, 300, function() {
+                        $blueCard.hide();
+                    });
+                });
+
+                $greenRegion.mouseenter( function(){
+                    console.log( $greenCard );
+                    $greenCard.stop();
+                    $greenCard.show();
+                    $greenCard.animate({ "right" : 0 }, 300);
+
+                }).mouseleave( function() {
+                    $greenCard.stop();
+                    $greenCard.animate({ "right" : "100%" }, 300, function() {
+                        $greenCard.hide();
+                    });
+                });
+
+                $yellowRegion.mouseenter( function(){
+                    $yellowCard.stop();
+                    $yellowCard.show();
+                    $yellowCard.animate({ "right" : 0 }, 300);
+
+                }).mouseleave( function() {
+                    $yellowCard.stop();
+                    $yellowCard.animate({ "right" : "100%" }, 300, function() {
+                        $yellowCard.hide();
+                    });
+                });
+
+                $redRegion.mouseenter( function(){
+                    $redCard.stop();
+                    $redCard.show();
+                    $redCard.animate({ "left" : 0 }, 300);
+
+                }).mouseleave( function() {
+                    $redCard.stop();
+                    $redCard.animate({ "left" : "-100%" }, 300, function() {
+                        $redCard.hide();
+                    });
+                });
+            }
+
+            function deactivateHoverEvents( $region ) {
+                $region.off('mouseenter').off('mouseleave');
+            }
+
+            defineEvents();
+
+        });
+    </script>
+</html>
+
