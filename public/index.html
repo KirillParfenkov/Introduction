@@ -145,10 +145,47 @@
             padding-top: 120px;
         }
 
-        .region .card  .content {
+        .region .card .content {
             display: none;
             padding-top: 200px;
             font-size: 40px;
+        }
+
+        .region.red .card .content {
+            padding-top: 160px;
+            font-size: 40px;
+        }
+
+        .region.red .card .content .item {
+            display: inline-block;
+            text-align: center;
+            align-content: center;
+            height: 100%;
+            margin-left: 15px;
+        }
+
+        .region.red .card .content .line {
+            margin-bottom: 30px;
+        }
+
+        .region.red .card .content .line .image {
+            position: relative;
+            top: 18px;
+            display: inline-block;
+            height: 64px;
+            width: 64px;
+        }
+
+        .region.red .card .content .line .image.simple{
+            background-image: url(img/1411762768_formula_64.png);
+        }
+
+        .region.red .card .content .line .image.creation{
+            background-image: url(img/1411762388_file02_64.png);
+        }
+
+        .region.red .card .content .line .image.design{
+            background-image: url(img/1411762636_pens-pencils_64.png);
         }
 
         .region .cross {
@@ -190,7 +227,18 @@
                         <a>Услуги</a>
                     </div>
                     <div class="content">
-                        Разработка Веб-приложений.
+                        <div class="line">
+                            <div class="image creation"></div>
+                            Создание сайтов любой сложности.
+                        </div>
+                        <div class="line">
+                            <div class="image design"></div>
+                            Уникальный дизайн.
+                        </div>
+                        <div class="line">
+                            <div class="image simple"></div>
+                            Простота использования.
+                        </div>
                     </div>
                 </div>
                 <div class="curtain">
