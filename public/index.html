@@ -256,7 +256,83 @@
                         <a>Написать</a>
                     </div>
                     <div class="content">
-                        Форма отправки сообщения.
+                        <style>
+                            .region.green .card .content {
+                                font-size: 20px;
+                                padding-top: 60px;
+                            }
+
+                            .region.green .card .content .message{
+                                width: 600px;
+                                height: 300px;
+                                max-width: 600px;
+                                max-height: 300px;
+                                padding: 10px;
+                                border: 0px;
+                                font-family: Play, sans-serif;
+                                font-size: 15px;
+                            }
+
+                            .region.green .card .content .email{
+                                width: 430px;
+                                border: 0px;
+                                margin-left: 15px;
+                                padding: 5px;
+                                font-family: Play, sans-serif;
+                            }
+
+                            .region.green .card .content .contact-line{
+                                display: inline-block;
+                                text-align: right;
+                                width: 620px;
+                                margin-bottom: 15px;
+                            }
+
+                            .region.green .card .content .contact-line .label{
+                                display: inline-block;
+                                padding-top: 5px;
+                            }
+
+                            .region.green .card .content .send-box {
+                                display: inline-block;
+                                text-align: right;
+                                width: 620px;
+                                margin-top: 20px;
+                            }
+
+                            .region.green .card .content .send-box img {
+                                display: inline-block;
+                                float: left;
+                            }
+
+                            .region.green .card .content button {
+                                height: 64px;
+                                font-family: Play, sans-serif;
+                                font-weight: bold;
+                                font-size: 17px;
+                                background: #FFF;
+                                border: solid 1px;
+                                border-radius: 5px;
+                            }
+
+                            .region.green .card .content .ps{
+                                margin-top: 25px;
+                            }
+                        </style>
+                        <form>
+                            <div class="contact-line">
+                                <label for="contact-email">Ваши Контакты</label><input class="email" id="contact-email" type="text"/><br>
+                            </div>
+                            <label for="contact-message"></label><textarea class="message" id="contact-message" rows="3"
+                                > </textarea>
+                            <div class="send-box">
+                                <img src="img/fly.png"/>
+                                <button class="send" >Отправить</button>
+                            </div>
+                            <div class="ps">
+                                 Пожалуйста, укажите Ваши контактные данные,<br> чтобы мы могли с Вами связаться.
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="curtain">
@@ -374,7 +450,7 @@
                         overflow : "hidden"
                     });
 
-                    activateHoverEvents();
+                    activateEvents();
                     $yellowCard.css({
                         "z-index" : "200"
                     });
@@ -399,7 +475,7 @@
                         overflow : "hidden"
                     });
 
-                    activateHoverEvents();
+                    activateEvents();
                     $greenCard.css({
                         "z-index" : "200"
                     });
@@ -426,7 +502,7 @@
                         overflow : "hidden"
                     });
 
-                    activateHoverEvents();
+                    activateEvents();
                     $blueCard.css({
                         "z-index" : "200"
                     });
@@ -450,7 +526,7 @@
                     $redRegion.css({
                         overflow : "hidden"
                     });
-                    activateHoverEvents();
+                    activateEvents();
                     $redCard.css({
                         "z-index" : "200"
                     });
@@ -463,108 +539,123 @@
                 });
             }
 
+            var greenCardClickHandler = function() {
+                deactivateHoverEvents( $greenRegion );
+                $greenRegion.css( {
+                    overflow: "visible"
+                });
+
+                $greenContentHeader.animate({
+                    opacity : 0
+                }, 100 );
+
+                $greenCard.animate({
+                    width: "820px",
+                    height: "620px"
+                },500, function() {
+                    $greenCard.css("box-shadow", "0px 5px 10px 2px rgba(39, 169, 50, 1)");
+                    $greenCross.show();
+                    renderContent( $greenContent, $greenContentHeader );
+                });
+
+            };
+
+            var yellowCardClickHandler = function() {
+                deactivateHoverEvents( $yellowRegion );
+                $yellowRegion.css( {
+                    overflow: "visible"
+                });
+
+                $yellowContentHeader.animate({
+                    opacity : 0
+                }, 100 );
+
+                $yellowCard.animate({
+                    "top" : "-320px"
+                }, 300, function() {
+
+                }).animate({
+                    width: "820px",
+                    height: "620px"
+                },500, function() {
+                    $yellowCard.css("box-shadow", "0px 5px 10px 2px rgba(250, 204, 46, 1)");
+                    $yellowCross.show();
+                    renderContent( $yellowContent, $yellowContentHeader );
+                });
+            };
+
+            var blueCardClickHandler = function() {
+
+                deactivateHoverEvents( $blueRegion );
+                $blueRegion.css( {
+                    overflow: "visible"
+                });
+
+                $blueContentHeader.animate({
+                    opacity : 0
+                }, 100 );
+
+                $blueCard.animate({
+                    "top" : "-320px"
+                }, 300, function() {
+
+                }).animate({
+                    width: "820px",
+                    height: "620px"
+                },500, function() {
+                    $blueCard.css("box-shadow", "0px 5px 10px 2px rgba(1, 115, 255, 1)");
+                    $blueCross.show();
+                    renderContent( $blueContent, $blueContentHeader );
+                });
+
+            };
+
+            var redCardClickHandler = function () {
+
+                deactivateHoverEvents( $redRegion );
+                $redRegion.css( {
+                    overflow: "visible"
+                });
+
+                $redContentHeader.animate({
+                    opacity : 0
+                }, 100 );
+
+                $redCard.animate({
+                    width: "820px",
+                    height: "620px"
+                },500, function() {
+                    $redCard.css("box-shadow", "0px 5px 10px 2px rgba(204, 0, 51, 1)");
+                    $redCross.show();
+                    renderContent( $redContent, $redContentHeader );
+                });
+
+            };
+
             function defineEvents() {
 
-                activateHoverEvents();
-
-                $greenCard.click( function() {
-                    deactivateHoverEvents( $greenRegion );
-                    $greenRegion.css( {
-                        overflow: "visible"
-                    });
-
-                    $greenContentHeader.animate({
-                        opacity : 0
-                    }, 100 );
-
-                    $greenCard.animate({
-                        width: "820px",
-                        height: "620px"
-                    },500, function() {
-                        $greenCard.css("box-shadow", "0px 5px 10px 2px rgba(39, 169, 50, 1)");
-                        $greenCross.show();
-                        renderContent( $greenContent, $greenContentHeader );
-                    });
-
-                });
-
-                $yellowCard.click( function() {
-                    deactivateHoverEvents( $yellowRegion );
-                    $yellowRegion.css( {
-                        overflow: "visible"
-                    });
-
-                    $yellowContentHeader.animate({
-                        opacity : 0
-                    }, 100 );
-
-                    $yellowCard.animate({
-                        "top" : "-320px"
-                    }, 300, function() {
-
-                    }).animate({
-                        width: "820px",
-                        height: "620px"
-                    },500, function() {
-                        $yellowCard.css("box-shadow", "0px 5px 10px 2px rgba(250, 204, 46, 1)");
-                        $yellowCross.show();
-                        renderContent( $yellowContent, $yellowContentHeader );
-                    });
-
-                });
-
-                $blueCard.click( function() {
-
-                    deactivateHoverEvents( $blueRegion );
-                    $blueRegion.css( {
-                        overflow: "visible"
-                    });
-
-                    $blueContentHeader.animate({
-                        opacity : 0
-                    }, 100 );
-
-                    $blueCard.animate({
-                        "top" : "-320px"
-                    }, 300, function() {
-
-                    }).animate({
-                        width: "820px",
-                        height: "620px"
-                    },500, function() {
-                        $blueCard.css("box-shadow", "0px 5px 10px 2px rgba(1, 115, 255, 1)");
-                        $blueCross.show();
-                        renderContent( $blueContent, $blueContentHeader );
-                    });
-
-                });
-
-                $redCard.click( function() {
-
-                    deactivateHoverEvents( $redRegion );
-                    $redRegion.css( {
-                        overflow: "visible"
-                    });
-
-                    $redContentHeader.animate({
-                        opacity : 0
-                    }, 100 );
-
-                    $redCard.animate({
-                        width: "820px",
-                        height: "620px"
-                    },500, function() {
-                        $redCard.css("box-shadow", "0px 5px 10px 2px rgba(204, 0, 51, 1)");
-                        $redCross.show();
-                        renderContent( $redContent, $redContentHeader );
-                    });
-
-                });
+                activateEvents();
 
                 $('.region .card').hover( function() {
                     $(this).data('hover',1);
                 }, function() {
                     $(this).data('hover',0);
+                });
+
+
+                $yellowContent = $sendButton = $yellowCross.find('.content');
+                $sendButton = $yellowContent.find('button.send');
+                $sender = $yellowContent.find('.email');
+                $message = $yellowContent.find('.message');
+                $sendButton.click( function() {
+                    emailSender.send( $sender.val(), $message.val(), {
+                        success : function( result ) {
+
+                        },
+                        error : function( result ) {
+
+                        }
+                    });
                 });
 
                 $redCross.click( function() {
@@ -584,13 +675,23 @@
                 });
             }
 
-            function activateHoverEvents() {
+            function activateEvents() {
 
                 var shadow = { "box-shadow" : "0px 3px 10px 0px rgba(50, 50, 50, 0.75)" }
                 $blueCard.css( shadow );
                 $redCard.css( shadow );
                 $yellowCard.css( shadow );
                 $greenCard.css( shadow );
+
+                $blueCard.off('click');
+                $yellowCard.off('click');
+                $redCard.off('click');
+                $greenCard.off('click');
+
+                $greenCard.click( greenCardClickHandler );
+                $yellowCard.click( yellowCardClickHandler );
+                $blueCard.click( blueCardClickHandler );
+                $redCard.click( redCardClickHandler );
 
                 $blueRegion.mouseenter( function(){
                     $blueCard.stop();
@@ -643,10 +744,25 @@
 
             function deactivateHoverEvents( $region ) {
                 $region.off('mouseenter').off('mouseleave');
+                $region.find('.card').off('click');
             }
 
             defineEvents();
 
+            var emailSender = {
+                send : function( sender, message, result ) {
+                    $.ajax({
+                        url: '/api/services/email',
+                        type: 'post',
+                        data : {
+                            sender : sender,
+                            message : message
+                        },
+                        success : result.success,
+                        error : result.error
+                    });
+                }
+            }
         });
     </script>
 </html>
