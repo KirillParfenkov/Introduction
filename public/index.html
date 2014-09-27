@@ -306,7 +306,7 @@
                             }
 
                             .region.green .card .content button {
-                                height: 64px;
+                                height: 36px;
                                 font-family: Play, sans-serif;
                                 font-weight: bold;
                                 font-size: 17px;
@@ -373,6 +373,35 @@
                     </div>
                 </div>
             </div>
+            <style>
+                .region.yellow .content .image {
+                    width: 64px;
+                    height: 64px;
+                    display: inline-block;
+                    position: relative;
+                    top: 18px;
+                }
+
+                .region.yellow .content {
+                    padding-top: 160px;
+                }
+
+                .region.yellow .content .line {
+                    margin-bottom: 30px;
+                }
+
+                .region.yellow .content .image.phone {
+                    background-image: url('img/1411873734_27.Phone-64.png');
+                }
+
+                .region.yellow .content .image.email {
+                    background-image: url('img/1411873550_Streamline-58-64.png');
+                }
+
+                .region.yellow .content .image.skype {
+                    background-image: url('img/1411873001_07-skype-64.png');
+                }
+            </style>
             <div  class="region yellow" >
                 <div class="cross">
                     <img src="img/1411694336_cross-24-20.png">
@@ -382,9 +411,18 @@
                         <a>Контакты</a>
                     </div>
                     <div class="content">
-                        Skype : Kiryl_Parfiankou<br>
-                        Тел.: +375 29 3172890<br>
-                        Email: Kiryl.Parfiankou@gmail.com
+                        <div class="line">
+                            <div class="image skype"></div>
+                            Kiryl_Parfiankou
+                        </div>
+                        <div class="line">
+                            <div class="image phone"></div>
+                            +375 29 3172890<br>
+                        </div>
+                        <div class="line">
+                            <div class="image email"></div>
+                            Kiryl.Parfiankou@gmail.com
+                        </div>
                     </div>
                 </div>
                 <div class="curtain">
