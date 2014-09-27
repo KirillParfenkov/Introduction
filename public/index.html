@@ -647,10 +647,7 @@
                 $sendButton = $greenContent.find('button.send');
                 $sender = $greenContent.find('.email');
                 $message = $greenContent.find('.message');
-                console.log( $sendButton );
-                alert('stop!');
                 $sendButton.click( function( event ) {
-                    alert('Send!');
                     event.preventDefault();
                     emailSender.send( $sender.val(), $message.val(), {
                         success : function( result ) {

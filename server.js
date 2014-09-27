@@ -10,7 +10,6 @@ var emailService = new EmailService('./config.json');
 
 var app = express();
 
-
 app.use(session({
 	keys : ['secret1', 'secret2']
 }));
@@ -28,7 +27,6 @@ app.post( '/api/services/email', function(req, res) {
         html : "<p>From: " + sander+ "</p><p>" + message + "</p>"
     }, function( err ) {
         if ( err ) {
-            console.log('err');
             console.log( err );
             res.json( 400, err);
         } else {
@@ -37,6 +35,6 @@ app.post( '/api/services/email', function(req, res) {
     });
 });
 
-app.listen(8080, function() {
-	console.log('Server running at 8080 port');
+app.listen(80, function() {
+	console.log('Server running at 80 port');
 });
