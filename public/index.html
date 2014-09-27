@@ -281,14 +281,14 @@
                                 font-family: Play, sans-serif;
                             }
 
-                            .region.green .card .content .contact-line{
+                            .region.green .card .content .contact-line {
                                 display: inline-block;
                                 text-align: right;
                                 width: 620px;
                                 margin-bottom: 15px;
                             }
 
-                            .region.green .card .content .contact-line .label{
+                            .region.green .card .content .contact-line .label {
                                 display: inline-block;
                                 padding-top: 5px;
                             }
@@ -313,6 +313,20 @@
                                 background: #FFF;
                                 border: solid 1px;
                                 border-radius: 5px;
+                                margin: 0;
+                                cursor: pointer;
+                            }
+
+                            .region.green .card .content button:hover {
+                                box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.75);
+                            }
+
+                            .region.green .card .content .message:hover {
+                                box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.75);
+                            }
+
+                            .region.green .card .content .email:hover {
+                                box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.75);
                             }
 
                             .region.green .card .content .ps{
@@ -644,6 +658,7 @@
 
 
                 $greenContent = $sendButton = $greenCard.find('.content');
+                $ps = $greenContent.find('.ps');
                 $sendButton = $greenContent.find('button.send');
                 $sender = $greenContent.find('.email');
                 $message = $greenContent.find('.message');
@@ -651,7 +666,9 @@
                     event.preventDefault();
                     emailSender.send( $sender.val(), $message.val(), {
                         success : function( result ) {
-                            console.log('success');
+                            $ps.html('Сообщение отправлено!');
+                            $message.val('');
+                            $sender.val('');
                         },
                         error : function( result ) {
                             console.log('error');
