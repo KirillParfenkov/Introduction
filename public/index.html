@@ -404,7 +404,7 @@
                         "z-index" : "200"
                     });
                     if ( !$greenCard.data('hover') ) {
-                        $greenCard.animate({ "left" : "-100%" }, 300, function() {
+                        $greenCard.animate({ "right" : "100%" }, 300, function() {
                             $greenCard.hide();
                         });
                     }
@@ -605,7 +605,6 @@
                 });
 
                 $greenRegion.mouseenter( function(){
-                    console.log( $greenCard );
                     $greenCard.stop();
                     $greenCard.show();
                     $greenCard.animate({ "right" : 0 }, 300);
