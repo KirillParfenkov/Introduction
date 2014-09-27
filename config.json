@@ -1,7 +1,7 @@
 {
 	"port": 8080,
 	"email" : {
-		"sender" : "Kiryl.Parfiankou.Dev@gmail.com",
+		"sender" : "parf.by@gmail.com",
 		"password" : "azk@ovn@gdj",
 		"service" : "Gmail"
 	}

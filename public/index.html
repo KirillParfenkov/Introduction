@@ -643,17 +643,21 @@
                 });
 
 
-                $yellowContent = $sendButton = $yellowCard.find('.content');
-                $sendButton = $yellowContent.find('button.send');
-                $sender = $yellowContent.find('.email');
-                $message = $yellowContent.find('.message');
-                $sendButton.click( function() {
+                $greenContent = $sendButton = $greenCard.find('.content');
+                $sendButton = $greenContent.find('button.send');
+                $sender = $greenContent.find('.email');
+                $message = $greenContent.find('.message');
+                console.log( $sendButton );
+                alert('stop!');
+                $sendButton.click( function( event ) {
+                    alert('Send!');
+                    event.preventDefault();
                     emailSender.send( $sender.val(), $message.val(), {
                         success : function( result ) {
-
+                            console.log('success');
                         },
                         error : function( result ) {
-
+                            console.log('error');
                         }
                     });
                 });
